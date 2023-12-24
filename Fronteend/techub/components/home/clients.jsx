@@ -1,6 +1,7 @@
 import { faCircleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Card, CardContent, ImageList, ImageListItem, Slider, Typography } from "@mui/material";
+import Image from "next/image";
 import React from "react";
 
 const itemData = [
@@ -34,7 +35,7 @@ function Brands() {
     const cards = itemData.map((element, index) => (
 
         <ImageListItem key={index} >
-            <img
+            <Image
                 srcSet={`${element.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 src={`${element.img}?w=164&h=164&fit=crop&auto=format`}
                 alt={element.title}

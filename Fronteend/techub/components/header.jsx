@@ -3,6 +3,7 @@ import { MobileMenu } from './mobileMenu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import Image from 'next/image';
 export const Header = () => {
     return (
         <header className="bg-gray-800 mb-2">
@@ -10,8 +11,8 @@ export const Header = () => {
             <hr />
             <nav className="container flex items-center justify-between text-gray-300  ">
                 <Link href='/' >
-                    <img src="/images/logo_grande.png" alt="TecHub" className="mx-16 my-auto hidden md:flex pt-2 pb-2" />
-                    <img src="/images/logo_pequeño.png" alt="TecHub" className="md:hidden  mx-16 my-auto pt-2 pb-2" />
+                    <Image src="/images/logo_grande.png" alt="TecHub" className="mx-16 my-auto hidden md:flex pt-2 pb-2" />
+                    <Image src="/images/logo_pequeño.png" alt="TecHub" className="md:hidden  mx-16 my-auto pt-2 pb-2" />
                 </Link>
 
 

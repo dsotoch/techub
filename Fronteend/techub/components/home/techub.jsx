@@ -1,6 +1,7 @@
 import { faBaby, faCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardContent, List, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import Image from "next/image";
 import React from "react";
 
 export const TecHub = () => {
@@ -80,7 +81,7 @@ export const TecHub = () => {
                 </Card>
                 <Card className="md:w-1/2 my-auto">
                     <CardContent>
-                        <img src="./images/banner.webp" />
+                        <Image src="./images/banner.webp" />
 
                     </CardContent>
                 </Card>

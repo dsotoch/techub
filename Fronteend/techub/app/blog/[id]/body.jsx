@@ -1,4 +1,5 @@
 import { CardActions, Card, CardContent, Paper, Typography } from "@mui/material";
+import Image from "next/image";
 import React from "react";
 
 export const Body = async ({ id }) => {
@@ -17,7 +18,7 @@ export const Body = async ({ id }) => {
                     <Typography className="text-2xl font-semibold italic">{blog.subtitulo}</Typography>
                     <Typography className="mt-2 text-cyan-900 text-justify">{blog.descripcion}</Typography>
                     <div className="w-full border p-2 m-2">
-                        <img src={`${process.env.API_URL}${blog.imagen}`} alt="" srcSet="" title={blog.titulo} className="object-cover w-full" />
+                        <Image src={`${process.env.API_URL}${blog.imagen}`} alt="" srcSet="" title={blog.titulo} className="object-cover w-full" />
                     </div>
                     < div className="mt-5 text-center">
                         {blog.link != null && (

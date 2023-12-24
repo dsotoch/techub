@@ -3,6 +3,7 @@ import Carousel from 'react-material-ui-carousel'
 import {  Card, CardActionArea, CardContent, Paper, Typography } from "@mui/material";
 import { blue} from "@mui/material/colors";
 import React from "react";
+import Image from 'next/image';
 export const OurServices = () => {
     return (
         <>
@@ -56,7 +57,7 @@ const Swiper = () => {
                     sx={{ maxWidth: 500 }}
                 >
                     <CardActionArea >
-                        <img src={props.item.imgSrc} alt={props.item.title} width={200} height={150} className="mx-auto pt-5 w-1/2" />
+                        <Image src={props.item.imgSrc} alt={props.item.title} width={200} height={150} className="mx-auto pt-5 w-1/2" />
                         <CardContent>
                             <Typography variant="h5" color={blue[800]} marginBottom={3} fontWeight={"bold"} className="text-cyan-900">
                                 *{props.item.title}*
