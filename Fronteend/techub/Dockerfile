@@ -1,27 +1,20 @@
-# Etapa para instalar dependencias
-FROM node:18-alpine AS deps
+# Utilizamos una imagen de Node.js 18 en Alpine como base
+FROM node:18-alpine
+
+# Establecemos el directorio de trabajo en /app
 WORKDIR /app
 
+# Copiamos los archivos de configuración y el paquete.json
 COPY package*.json ./
+
+# Instalamos las dependencias
 RUN npm ci
 
-# Etapa para construir la aplicación
-FROM  node:18-alpine as builder
-WORKDIR /app
-
-COPY --from=deps /app/node_modules ./node_modules
-
+# Copiamos el resto de los archivos del proyecto
 COPY . .
+
+# Construimos la aplicación (ajusta esto según las necesidades de tu proyecto)
 RUN npm run build
 
-# Etapa final para ejecutar la aplicación
-FROM  node:18-alpine as runner
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install --production
-COPY --from=builder /app/dist ./dist
-COPY .env .
-
-# Incluye CMD al final del Dockerfile
+# Comando para iniciar la aplicación
 CMD ["node", "dist/main.js"]
