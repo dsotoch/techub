@@ -2,7 +2,7 @@ import { Card, CardContent, Paper, Typography, CircularProgress, Button } from "
 import Link from "next/link";
 import React from "react";
 export async function Body() {
-    const apiUrl = process.env.API_URL;
+    const apiUrl = process.env.API_URL || 'http://localhost:8080';
     const endpoint = 'Blog';
     const response = await fetch(apiUrl + '/' + endpoint);
     const res = await response.json();
