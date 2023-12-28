@@ -1,31 +1,24 @@
-FROM node:18-alpine AS base
-
-# Install dependencies only when needed
-FROM base AS deps
-RUN apk add --no-cache libc6-compat
+FROM node:18-alpine AS deps
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+COPY package*.json ./
 RUN npm ci
 
-FROM base AS builder
+FROM  node:18-alpine as builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
 
+COPY --from=deps /app/node_modules ./node_modules
+
+COPY . .
 RUN npm run build
 
-FROM base AS runner
+FROM  node:18-alpine as runner
 WORKDIR /app
 
-ENV NODE_ENV debug
+COPY package*.json ./
+RUN npm install --production
+COPY --from=builder /app/dist ./dist
+COPY .env .
 
-COPY --from=builder /app/public ./public
+CMD ["node", "dist/main.js"]
 
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
