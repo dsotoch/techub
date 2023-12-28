@@ -1,20 +1,48 @@
-FROM node:18-alpine AS build
+FROM node:18-alpine AS base
 
+# Install dependencies only when needed
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+
+# Install dependencies based on the preferred package manager
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
+
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-COPY .env .env
+
+
 
 RUN npm run build
 
-FROM node:18-alpine AS runtime
 
+FROM base AS runner
 WORKDIR /app
-COPY package*.json ./
-RUN npm install --only=production
-COPY --from=build /app/.next ./.next
-COPY --from=build /app/public ./public
+
+ENV NODE_ENV debug
+
+
+COPY --from=builder /app/public ./public
+
+# Set the correct permission for prerender cache
+RUN mkdir .next
+RUN chown nextjs:nodejs .next
+
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
 
 EXPOSE 3000
-CMD ["npm", "start"]
+
+
+
+CMD ["node", ".next/server.js"]
