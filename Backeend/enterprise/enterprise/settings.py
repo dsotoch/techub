@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_10zu=ah+#i*5+tz0c&5d3qym_62x2g%6&uf#hyu*%-tt=^_5z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["google.com"
+ALLOWED_HOSTS = [
 ]
 
 
@@ -134,8 +134,6 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "http://frontend-container:frontend-container-port",
-
 ]
 CORS_ALLOW_CREDENTIALS = True
 CSRF_COOKIE_SECURE = False 
