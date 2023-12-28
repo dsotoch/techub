@@ -1,31 +1,19 @@
-#ETAPA DE CONSTRUCCION
-FROM node:alpine AS Build
+FROM node:18-alpine AS build
 
-#directorio de trabajo
 WORKDIR /app
-
-#copiar archivos de configuracion
 COPY package*.json ./
-
-#instalar dependencias
-RUN npm install
-
-#copiar resto de aplicacion
+RUN npm ci
 COPY . .
-
-#construir la aplicacion
 RUN npm run build
 
-#etapa de produccion
-FROM node:alpine AS production
+FROM node:18-alpine AS runtime
 
 WORKDIR /app
-
-COPY --from=build /app/package*.json ./
+COPY package*.json ./
+RUN npm ci --only=production
 COPY --from=build /app/.next ./.next
-
-RUN npm ci --production
+COPY --from=build /app/public ./public
 
 EXPOSE 3000
-
-CMD ["npm","start"] 
+USER node
+CMD ["npm", "start"]
