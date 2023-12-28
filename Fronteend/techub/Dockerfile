@@ -17,4 +17,4 @@ COPY . .
 RUN npm run build
 
 # Comando para iniciar la aplicación
-CMD ["node", "dist/main.js"]
+CMD ["npm", "start"]
