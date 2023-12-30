@@ -24,7 +24,7 @@ export const Attention = () => {
                         badgeContent={<span style={{ backgroundColor: '#4caf50', color: 'white', padding: '4px', borderRadius: '50%', fontWeight: "bold" }}>01</span>}
 
                     >
-                        <Avatar src="./images/analisis.jpg"
+                        <Avatar src="/images/analisis.jpg"
                             className="border-8 border-black-500 mx-auto mb-2 "
                             sx={{ width: 200, height: 150 }}
 
@@ -42,7 +42,7 @@ export const Attention = () => {
                         badgeContent={<span style={{ backgroundColor: '#4caf50', color: 'white', padding: '4px', borderRadius: '50%', fontWeight: "bold" }}>02</span>}
 
                     >
-                        <Avatar src="./images/mejora.webp"
+                        <Avatar src="/images/mejora.webp"
                             className="border-8 border-black-500 mx-auto mb-2"
                             sx={{ width: 200, height: 150 }}
 
@@ -60,7 +60,7 @@ export const Attention = () => {
                         badgeContent={<span style={{ backgroundColor: '#4caf50', color: 'white', padding: '4px', borderRadius: '50%', fontWeight: "bold" }}>03</span>}
 
                     >
-                        <Avatar src="./images/asesor.webp"
+                        <Avatar src="/images/asesor.webp"
                             className="border-8 border-black-500 mx-auto mb-2"
                             sx={{ width: 200, height: 150 }}
 
@@ -78,7 +78,7 @@ export const Attention = () => {
                         badgeContent={<span style={{ backgroundColor: '#4caf50', color: 'white', padding: '4px', borderRadius: '50%', fontWeight: "bold" }}>04</span>}
 
                     >
-                        <Avatar src="./images/resume.webp"
+                        <Avatar src="/images/resume.webp"
                             className="border-8 border-black-500 mx-auto mb-2 "
                             sx={{ width: 200, height: 150 }}
 

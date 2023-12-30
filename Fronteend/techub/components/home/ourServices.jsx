@@ -22,22 +22,22 @@ export const OurServices = () => {
 const Swiper = () => {
     const data = [
         {
-            imgSrc: "./images/TI.jpg", title: "Asesoria TI", description: "Brindamos todo tipo de asesoría integral de gestión de TI según las prioridades de su organización."
+            imgSrc: "/images/TI.jpg", title: "Asesoria TI", description: "Brindamos todo tipo de asesoría integral de gestión de TI según las prioridades de su organización."
         },
         {
-            imgSrc: "./images/software.webp", title: "Software", description: "Diseñamos soluciones que generen valor a sus procesos de negocios, a través de nuestra fábrica de software."
+            imgSrc: "/images/software.webp", title: "Software", description: "Diseñamos soluciones que generen valor a sus procesos de negocios, a través de nuestra fábrica de software."
         },
         {
-            imgSrc: "./images/nube.webp", title: "Computación en la Nube", description: "Facilitamos la infraestructura tecnológica para nuestros clientes en la nube, incluimos aplicaciones completas, servidores y unidades de almacenamiento."
+            imgSrc: "/images/nube.webp", title: "Computación en la Nube", description: "Facilitamos la infraestructura tecnológica para nuestros clientes en la nube, incluimos aplicaciones completas, servidores y unidades de almacenamiento."
         },
         {
-            imgSrc: "./images/servidor.webp", title: "Administración de Servidores(RedHat,Centos)", description: "Como administradores de servidores en entornos Red Hat y CentOS, nuestras responsabilidades abarcan la configuración, seguridad y mantenimiento de servidores Linux. Nos encargamos de instalar y actualizar el sistema operativo, gestionar la seguridad, administrar usuarios, monitorear el rendimiento y proporcionar soporte técnico. Nuestro objetivo principal es asegurar la estabilidad, seguridad y eficiencia del entorno de los servidores que administramos."
+            imgSrc: "/images/servidor.webp", title: "Administración de Servidores(RedHat,Centos)", description: "Como administradores de servidores en entornos Red Hat y CentOS, nuestras responsabilidades abarcan la configuración, seguridad y mantenimiento de servidores Linux. Nos encargamos de instalar y actualizar el sistema operativo, gestionar la seguridad, administrar usuarios, monitorear el rendimiento y proporcionar soporte técnico. Nuestro objetivo principal es asegurar la estabilidad, seguridad y eficiencia del entorno de los servidores que administramos."
         },
         {
-            imgSrc: "./images/saas.webp", title: "Software como Servicio (SaaS)", description: "Como equipo, optamos por utilizar soluciones SaaS para acceder a aplicaciones a través de la web. Este modelo nos permite aprovechar funciones y datos sin la carga de instalaciones y mantenimiento local."
+            imgSrc: "/images/saas.webp", title: "Software como Servicio (SaaS)", description: "Como equipo, optamos por utilizar soluciones SaaS para acceder a aplicaciones a través de la web. Este modelo nos permite aprovechar funciones y datos sin la carga de instalaciones y mantenimiento local."
         },
         {
-            imgSrc: "./images/licencia.webp", title: "Licencias de Software", description: "Como equipo, gestionamos cuidadosamente nuestras licencias de software para asegurar la legalidad y eficiencia en el uso de aplicaciones y programas."
+            imgSrc: "/images/licencia.webp", title: "Licencias de Software", description: "Como equipo, gestionamos cuidadosamente nuestras licencias de software para asegurar la legalidad y eficiencia en el uso de aplicaciones y programas."
         }
     ];
 
