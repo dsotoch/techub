@@ -7,11 +7,13 @@ import Image from 'next/image';
 export const Header = () => {
     return (
         <header className="bg-gray-800 mb-2">
-            <div className="flex justify-between p-4 text-gray-400 font-semibold"><div className='flex'> <FontAwesomeIcon icon={faLocationDot} className='mr-2 my-auto' /><span>Trujillo,La Libertad | Peru </span></div> <div className='flex'><FontAwesomeIcon icon={faEnvelope} className='mr-2 my-auto' /><span>techub@techub.com</span> </div> </div>
+            <div className="flex justify-between p-4 text-gray-400 font-semibold">
+                <div className='md:flex md:justify-start grid justify-items-center'> <FontAwesomeIcon icon={faLocationDot} className='mr-2 my-auto' /><span>Trujillo,La Libertad | Peru </span></div>
+                <div className='md:flex  md:justify-start grid justify-items-center'><FontAwesomeIcon icon={faEnvelope} className='mr-2 my-auto' /><span>techub@techub.com</span> </div> </div>
             <hr />
             <nav className="container flex items-center justify-between text-gray-300  ">
                 <Link href='/' >
-                    <img src="/images/logo_grande.png" width={100} height={100} alt="TecHub" className="mx-16 my-auto hidden md:flex pt-2 pb-2"  />
+                    <img src="/images/logo_grande.png" width={100} height={100} alt="TecHub" className="mx-16 my-auto hidden md:flex pt-2 pb-2" />
                     <img src="/images/logo_pequeño.png" width={100} height={100} alt="TecHub" className="md:hidden  mx-16 my-auto pt-2 pb-2" />
                 </Link>
 
