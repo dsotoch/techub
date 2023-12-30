@@ -80,13 +80,13 @@ export function Footer() {
                     <p>Información de Contacto: techub@techub.com | Teléfono: (51) 916715991</p>
                     <p>Av Los Laureles, Viru, La Libertad, Perú</p>
                     <div className="flex justify-center">
-                        <Image src="/images/ssl.webp" alt="SSL Seal" className="w-32 h-32" />
+                        <img src="/images/ssl.webp" alt="SSL Seal" className="w-32 h-32" />
                     </div>
                 </div>
 
                 <div className="pl-4 sm:text-center sm:mb-2">
                     <p className="text-3xl font-serif font-semibold mb-4">Aceptamos</p>
-                    <Image src="/images/pagos.webp" alt="Métodos de Pago" />
+                    <img src="/images/pagos.webp" alt="Métodos de Pago"  />
                 </div>
             </div>
             <hr className="border-t border-gray-700 my-4" />

@@ -81,7 +81,7 @@ export const TecHub = () => {
                 </Card>
                 <Card className="md:w-1/2 my-auto">
                     <CardContent>
-                        <Image src="./images/banner.webp" />
+                        <img src="/images/banner.webp" title="Techub"/>
 
                     </CardContent>
                 </Card>

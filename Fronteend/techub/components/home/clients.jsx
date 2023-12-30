@@ -35,7 +35,7 @@ function Brands() {
     const cards = itemData.map((element, index) => (
 
         <ImageListItem key={index} >
-            <Image
+            <img
                 srcSet={`${element.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 src={`${element.img}?w=164&h=164&fit=crop&auto=format`}
                 alt={element.title}

@@ -10,7 +10,7 @@ export const Proyects = () => {
                         <h2 className="text-center text-2xl font-semibold mb-2">BODE<span className="italic text-green-500 text-2xl font-semibold">GEST</span></h2>
                     </div>
                     <div className="my-auto animate-rotate-y animate-twice">
-                        <Image src="/images/portfolio/bodegest.png" alt="Bodegest|Gestión para tu Bodega" title="Bodegest|Gestión para tu Bodega" />
+                        <img src="/images/portfolio/bodegest.png" alt="Bodegest|Gestión para tu Bodega" title="Bodegest|Gestión para tu Bodega" />
                     </div>
                 </div>
                 <hr className="my-4" />
