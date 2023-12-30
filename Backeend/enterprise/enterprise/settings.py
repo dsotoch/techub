@@ -134,6 +134,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://localhost:3000",
     "https://127.0.0.1:3000",
     "https://viru-tec.com",
+    "http://viru-tec.com",
 
 ]
 CORS_ALLOW_CREDENTIALS = True
