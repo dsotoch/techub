@@ -14,7 +14,7 @@ export function Body() {
                 <Card >
                     <CardActionArea className="bg-gray-900 p-5 w-full grid justify-items-center relative group-hover:h-[150px] group-hover:mb-2">
                         <div className="group-hover:opacity-20 flex justify-center">
-                            <img src="/images/successCase/reservarpe.webp" alt="" className="w-full md:w-1/2" />
+                            <img src="../images/successCase/reservarpe.webp" alt="" className="w-full md:w-1/2" />
                         </div>
                         <div className="absolute group-hover:top-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex">
                             <Link href={'/successCase/reservar'}

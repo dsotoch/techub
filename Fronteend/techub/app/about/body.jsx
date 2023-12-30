@@ -54,7 +54,7 @@ export const Body = () => {
                 </div>
                 <div className="md:w-[30%]  inline w-full  p-4">
                     <img 
-                        src="/images/about/server.webp"
+                        src="../images/about/server.webp"
                         alt="Server Image"
                         className="md:border md:rounded-md  w-full h-[550px] p-4  md:object-fill object-contain mt-10"
                     />
@@ -71,7 +71,7 @@ const Bet = () => {
     return (
         <Paper className="grid md:flex mt-5   bg-gray-100" elevation={5}>
             <div className="md:w-1/2 p-4 mt-5  relative">
-                <img src="/images/about/people.webp" alt="TecHub tu mejor Aliado en TI" srcSet="" />
+                <img src="../images/about/people.webp" alt="TecHub tu mejor Aliado en TI" srcSet="" />
                 <div className="absolute md:top-1/2 top-1/2  md:left-1/3 md:transform md:-translate-x-1/2 md:-translate-y-1/2">
                     <div className="p-6 bg-blue-800 text-white text-center">
                         <Typography className="font-semibold text-2xl">3 <span className="italic text-2xl">Años</span></Typography>
