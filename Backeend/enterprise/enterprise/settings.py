@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_10zu=ah+#i*5+tz0c&5d3qym_62x2g%6&uf#hyu*%-tt=^_5z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','viru-tec.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','back-tec.viru-tec.com']
 
 
 # Application definition
@@ -133,8 +133,8 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 CORS_ALLOWED_ORIGINS = [
     "https://localhost:3000",
     "https://127.0.0.1:3000",
-    "https://viru-tec.com",
-    "http://viru-tec.com",
+    "https://back-tec.viru-tec.com",
+    "http://back-tec.viru-tec.com",
 
 ]
 CORS_ALLOW_CREDENTIALS = True
