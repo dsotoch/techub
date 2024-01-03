@@ -11,5 +11,5 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["gunicorn", "enterprise.wsgi","0.0.0.0:8000"]
+CMD ["gunicorn", "enterprise.wsgi","--bind","0.0.0.0:8000"]
 
