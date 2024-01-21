@@ -19,7 +19,7 @@ export const SetContact = () => {
         form.append('mensaje',formData.mensaje);
 
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/Contact/setContact', {
+            const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/Contacto/CrearSuscripcion', {
                 method: 'POST',
                 body: form,
                 credentials: 'include'

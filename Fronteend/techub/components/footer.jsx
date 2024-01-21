@@ -11,7 +11,7 @@ export function Footer() {
         const form = new FormData();
         form.append('email', formData.email);
         try {
-            const request = await fetch(process.env.NEXT_PUBLIC_API_URL + '/Contact/setSubscripcion', {
+            const request = await fetch(process.env.NEXT_PUBLIC_API_URL + '/Contacto/CrearSuscripcion', {
                 method: 'POST',
                 body: form,
                 credentials: 'include'
