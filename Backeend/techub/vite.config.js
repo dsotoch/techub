@@ -9,10 +9,7 @@ export default defineConfig({
         }),
     ],
     server: {
-        https: {
-          key: '/etc/letsencrypt/live/back-techub.viru-tec.com/privkey.pem',
-          cert: '/etc/letsencrypt/live/back-techub.viru-tec.com/fullchain.pem'
-        },
+       https:true,
         host: 'localhost',
         port: 5173,
       }
