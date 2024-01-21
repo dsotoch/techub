@@ -18,16 +18,16 @@ export function Footer() {
             });
             if (request.ok) {
                 const response = await request.json();
-                setMensaje(response.message);
+                setMensaje(response.mensaje);
 
                 setTimeout(() => {
                     setMensaje("");
                     setFormData({ email: "" });
-                }, 3000);
+                }, 4000);
             } else {
                 setTimeout(() => {
                     setMensaje("error");
-                }, 3000);
+                }, 4000);
 
             }
         } catch (error) {

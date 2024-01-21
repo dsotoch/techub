@@ -19,7 +19,7 @@ export const SetContact = () => {
         form.append('mensaje',formData.mensaje);
 
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/Contacto/CrearSuscripcion', {
+            const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/Contacto/Crear', {
                 method: 'POST',
                 body: form,
                 credentials: 'include'
@@ -27,7 +27,7 @@ export const SetContact = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                setMensaje(data.message);
+                setMensaje(data.mensaje);
 
                 setTimeout(() => {
                     setMensaje("");

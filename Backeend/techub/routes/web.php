@@ -3,7 +3,7 @@
 use App\Http\Controllers\Controller_Blog;
 use App\Http\Controllers\Controller_Contacto;
 use App\Http\Controllers\Controller_Dashboard;
-use App\Http\Middleware\CorsMiddleware;
+use Illuminate\Http\Middleware\HandleCors;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,21 +17,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware([CorsMiddleware::class])->controller(Controller_Dashboard::class)->group(
+Route::controller(Controller_Dashboard::class)->group(
     function () {
         Route::get('/', 'index');
         Route::get('/Blogs', 'blogs')->name('blogs');
         Route::get('/Contactos', 'contactos')->name('contactos');
     }
 );
-Route::middleware([CorsMiddleware::class])->controller(Controller_Blog::class)->prefix('Blog')->group(function () {
+Route::controller(Controller_Blog::class)->prefix('Blog')->group(function () {
     Route::get('/', 'index')->name('crear_blog');
     Route::post('/Crear', 'Crear')->name('guardar_post');
     Route::delete('/Eliminar/{id}', 'Eliminar')->name('eliminar_post');
     Route::get('/View_Editar/{id}', 'Vista_Editar')->name('vista_editar_post');
     Route::put('/Editar/{id}', 'Editar')->name('editar_post');
 });
-Route::middleware([CorsMiddleware::class])->controller(Controller_Contacto::class)->prefix('Contacto')->group(function () {
+Route::middleware([HandleCors::class])->controller(Controller_Contacto::class)->prefix('Contacto')->group(function () {
     Route::post('/Crear', 'Crear')->name('guardar_contacto');
     Route::post('/CrearSuscripcion', 'Crear_Suscripcion')->name('guardar_contacto_suscripcion');
 

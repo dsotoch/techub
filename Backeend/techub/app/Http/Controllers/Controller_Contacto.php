@@ -14,13 +14,13 @@ class Controller_Contacto extends Controller
 
             try {
                 Contacto::create([
-                    'nombres' => $request->input('nombres'),
+                    'nombres' => $request->input('name'),
                     'email' => $request->input('email'),
-                    'telefono' => $request->input('telefono'),
+                    'telefono' => $request->input('phone'),
                     'mensaje' => $request->input('mensaje'),
                 ]);
 
-                return response()->json(['mensaje' => 'Recibimos tu Solicitud, en breve nos comunicaremos contigo', 'estado' => 200]);
+                return response()->json(['mensaje' => 'Recibimos tu Solicitud, en breve nos comunicaremos contigo.', 'estado' => 200]);
             } catch (\Exception $e) {
                 return response()->json(['mensaje' => 'Error al procesar la solicitud' . '/' . $e->getMessage(), 'estado' => 500], 500);
             }
