@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('Dashboard')
 @section('titulo')
 Techub-Contactos
 @endsection
