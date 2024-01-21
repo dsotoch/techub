@@ -27,7 +27,7 @@ class Controller_Blog extends Controller
         $imagen = $request->file('imagen');
         $link = $request->input('link');
         try {
-            $imagen = $imagen->storeAs('Post', 'demo' . '_' . $imagen->getClientOriginalName());
+            $imagen = Storage::putFileAs('public/Post', $imagen, 'demo' . '_' . $imagen->getClientOriginalName());
             Blog::create([
                 'titulo' => $titulo,
                 'subtitulo' => $subtitulo,
@@ -90,7 +90,7 @@ class Controller_Blog extends Controller
             $post->link = $link;
             if ($imagen) {
                 Storage::delete(basename($post->imagen));
-                $imagen = $imagen->storeAs('Post', 'demo' . '_' . $imagen->getClientOriginalName());
+                $imagen = Storage::putFileAs('public/Post', $imagen, 'demo' . '_' . $imagen->getClientOriginalName());
                 $post->imagen = $imagen;
             }
             session()->flash('estado', 'success');
@@ -100,6 +100,58 @@ class Controller_Blog extends Controller
             session()->flash('estado', 'error');
             session()->flash('mensaje', 'No se pudo encontrar el post para editar.');
         }
-        return redirect()->route('vista_editar_post',$post->id);
+        return redirect()->route('vista_editar_post', $post->id);
+    }
+
+    #API
+
+    public function Blogs_all()
+    {
+        $blog = Blog::all();
+        $data = [];
+        foreach ($blog as $blog) {
+            $new = [
+                'id' => $blog->id,
+                'titulo' => $blog->titulo,
+                'subtitulo' => $blog->subtitulo,
+                'fecha' => $blog->fecha,
+                'autor_id' => $blog->autor->nombre . ' ' . $blog->autor->empresa,
+                'descripcion' => $blog->descripcion,
+                'imagen' => $blog->imagen,
+                'link' => $blog->link,
+            ];
+            array_push($data, $new);
+        }
+        return response()->json($data);
+    }
+
+    public function Buscar_blog($id)
+    {
+        $blog = Blog::find($id);
+        if ($blog) {
+            $blog = [
+                'id' => $blog->id,
+                'titulo' => $blog->titulo,
+                'subtitulo' => $blog->subtitulo,
+                'fecha' => $blog->fecha,
+                'autor_id' => $blog->autor->nombre . ' ' . $blog->autor->empresa,
+                'descripcion' => $blog->descripcion,
+                'imagen' => $blog->imagen,
+                'link' => $blog->link,
+            ];
+            return response()->json(['blog' => $blog]);
+        }
+    }
+    public function Retornar_imagen($id)
+    {
+        $blog = Blog::find($id);
+        if ($blog && $blog->imagen) {
+            $path = Storage::path($blog->imagen);
+            if (file_exists($path)) {
+                $fileContents = file_get_contents($path);
+                $response = response($fileContents, 200)->header('Content-Type', 'image/jpeg');
+                return $response;
+            }
+        }
     }
 }

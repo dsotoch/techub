@@ -3,9 +3,9 @@ import Link from "next/link";
 import React from "react";
 
 export async function Blog() {
-    if (process.env.NODE_ENV === 'production') {
+    
         const url = process.env.API_URL;
-        const endpoint = '/Blog/treeBlogs/';
+        const endpoint = '/Blog/Blogs_all/';
         var res = false;
         try {
             const request = await fetch(url + endpoint);
@@ -32,7 +32,7 @@ export async function Blog() {
 
                 <div className="md:flex grid w-full mt-5 justify-around">
                     {res ? (
-                        res.map((blog) => (
+                         res.slice(0, 3).map((blog) => (
                             <Card className="p-4 border w-full md:w-[30%] ml-2 md:mt-0 mt-2" elevation={5} key={blog.id}>
                                 <CardContent className=" text-cyan-900">
                                     <Typography className="font-semibold text-2xl italic my-2">{blog.titulo}</Typography>
@@ -58,9 +58,7 @@ export async function Blog() {
 
             </Paper>
         );
-    } else {
-        return (<div></div>)
-    }
+    
 
 }
 

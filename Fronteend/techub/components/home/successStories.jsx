@@ -19,15 +19,17 @@ export const SuccessStories = () => {
 
                 </Typography>
             </Box>
+           
             <Box>
 
-                <Link href={'/successCase'}>
+                <Link href={'#'}>
                     <Button
                         className="text-white font-semibold hover:bg-blue-900  bg-gray-800 p-4"
                     >
                         Casos de Exito
                     </Button></Link>
             </Box>
+            
 
         </Paper>
 

@@ -9,7 +9,7 @@ export const Header = () => {
         <header className="bg-gray-800 mb-2">
             <div className="flex justify-between p-4 text-gray-400 font-semibold">
                 <div className='md:flex md:justify-start grid justify-items-center'> <FontAwesomeIcon icon={faLocationDot} className='mr-2 my-auto' /><span>Trujillo,La Libertad | Peru </span></div>
-                <div className='md:flex  md:justify-start grid justify-items-center'><FontAwesomeIcon icon={faEnvelope} className='mr-2 my-auto' /><span>techub@techub.com</span> </div> </div>
+                <div className='md:flex  md:justify-start grid justify-items-center'><FontAwesomeIcon icon={faEnvelope} className='mr-2 my-auto' /><span>dsoto6155@gmail.com</span> </div> </div>
             <hr />
             <nav className="container flex items-center justify-between text-gray-300  ">
                 <Link href='/' >
@@ -41,7 +41,7 @@ export const Header = () => {
                         <hr className="absolute invisible group-hover:visible top-10 w-full mt-5 border-white-500 border-t-2 group-hover:border-blue-500" />
                     </li>
                     <li className="hover:uppercase hover:cursor-pointer relative group">
-                        <Link href={'/successCase'}>
+                        <Link href={'#'}>
                             <span className="group-hover:uppercase font-semibold">
                                 Casos de Éxito
                             </span>

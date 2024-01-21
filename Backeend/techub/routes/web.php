@@ -24,15 +24,22 @@ Route::controller(Controller_Dashboard::class)->group(
         Route::get('/Contactos', 'contactos')->name('contactos');
     }
 );
-Route::controller(Controller_Blog::class)->prefix('Blog')->group(function () {
+Route::middleware([HandleCors::class])->controller(Controller_Blog::class)->prefix('Blog')->group(function () {
     Route::get('/', 'index')->name('crear_blog');
     Route::post('/Crear', 'Crear')->name('guardar_post');
     Route::delete('/Eliminar/{id}', 'Eliminar')->name('eliminar_post');
     Route::get('/View_Editar/{id}', 'Vista_Editar')->name('vista_editar_post');
     Route::put('/Editar/{id}', 'Editar')->name('editar_post');
+    #api
+    Route::get('/Blogs_all', 'Blogs_all');
+    Route::get('/getBlog/{id}', 'Buscar_blog');
+    Route::get('/getImagen/{id}', 'Retornar_imagen');
+
 });
 Route::middleware([HandleCors::class])->controller(Controller_Contacto::class)->prefix('Contacto')->group(function () {
     Route::post('/Crear', 'Crear')->name('guardar_contacto');
     Route::post('/CrearSuscripcion', 'Crear_Suscripcion')->name('guardar_contacto_suscripcion');
+    Route::delete('/Eliminar_Contacto/{id}', 'Eliminar_Contacto')->name('eliminar_contacto');
+    Route::get('/Detalle/{id}', 'Detalle_Contacto')->name('detalle_contacto');
 
 });

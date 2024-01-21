@@ -77,8 +77,8 @@ export function Footer() {
 
                 <div className="mb-10 md:mb-0">
                     <p className="text-3xl font-serif font-semibold mb-4">Encuéntranos en</p>
-                    <p>Información de Contacto: techub@techub.com | Teléfono: (51) 916715991</p>
-                    <p>Av Los Laureles, Viru, La Libertad, Perú</p>
+                    <p>Información de Contacto: dsoto6155@gmail.com | Teléfono: (51) 916715991</p>
+                    <p>Viru, La Libertad, Perú</p>
                     <div className="flex justify-center">
                         <img src="/images/ssl.webp" alt="SSL Seal" className="w-32 h-32" />
                     </div>

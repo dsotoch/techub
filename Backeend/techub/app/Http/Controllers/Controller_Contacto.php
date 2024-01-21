@@ -48,4 +48,27 @@ class Controller_Contacto extends Controller
             return response()->json(['mensaje' => 'Solicitud no Permitida', 'estado' => 500], 500);
         }
     }
+    public function Eliminar_Contacto($id)
+    {
+        try {
+            Contacto::find($id)->delete();
+            session()->flash('estado', 'success');
+            session()->flash('mensaje', 'Contacto eliminado Correctamente');
+        } catch (\Throwable $th) {
+            session()->flash('estado', 'error');
+            session()->flash('mensaje', 'Hubo un Error al eliminar el contacto.' . '/' . $th->getMessage());
+        }
+        return back();
+    }
+    function Detalle_Contacto($id)
+    {
+        try {
+            $contacto = Contacto::find($id);
+        } catch (\Throwable $th) {
+            session()->flash('estado', 'error');
+            session()->flash('mensaje', 'Hubo un Error con el Contacto Seleccionado.' . '/' . $th->getMessage());
+            return back();
+        }
+        return view('Contacto.detalle', ['contacto' => $contacto]);
+    }
 }

@@ -37,9 +37,9 @@ export const MobileMenu = () => {
 
             >
                <Link  href={'/about'}><MenuItem onClick={handleClose} className="text-blue-500 font-semibold"> ¿Quiénes Somos?</MenuItem></Link>
-               <Link href={''}> <MenuItem onClick={handleClose} className="text-blue-500 font-semibold"> Portafolio</MenuItem></Link>
+               <Link href={'/portfolio'}> <MenuItem onClick={handleClose} className="text-blue-500 font-semibold"> Portafolio</MenuItem></Link>
                <Link href={''}> <MenuItem onClick={handleClose} className="text-blue-500 font-semibold">Casos de Éxito</MenuItem></Link>
-               <Link href={''}> <MenuItem onClick={handleClose} className="text-blue-500 font-semibold">Blog</MenuItem></Link>
+               <Link href={'/blog'}> <MenuItem onClick={handleClose} className="text-blue-500 font-semibold">Blog</MenuItem></Link>
                <Link href={'/contact'}> <MenuItem onClick={handleClose} className="text-blue-500 font-semibold">Contactanos</MenuItem></Link>
 
             </Menu>
