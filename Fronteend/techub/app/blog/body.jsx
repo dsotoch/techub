@@ -1,12 +1,40 @@
 'use client';
-import { Card, CardContent, Paper, Typography, CircularProgress, Button } from "@mui/material";
+import { Card, CardContent, Paper, Typography, Button, CircularProgress } from "@mui/material";
 import Link from "next/link";
-import React from "react";
-export async function Body() {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    const endpoint = 'Blog/Blogs_all';
-    const response = await fetch(apiUrl + '/' + endpoint);
-    const res = await response.json();
+import { useEffect, useState } from "react";
+
+export function Body() {
+    const [res, setRes] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchDataFromApi = async () => {
+            try {
+                const response = await fetch("/api/blog");
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                setRes(data);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchDataFromApi();
+    }, []);
+
+    if (loading) {
+        return <CircularProgress/>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
     return (
         <Paper className="grid w-full md:p-4 p-2">
             <Typography className="text-green-500 text-3xl m-2 italic">Somos TecHub</Typography>
@@ -20,16 +48,14 @@ export async function Body() {
                             <Typography>{blog.fecha}</Typography>
                             <Typography className="text-green-500 italic font-semibold">{blog.autor}</Typography>
                             <div className="mt-5 text-center">
-                                <Link href={`blog/${blog.id}`} className="bg-gray-900 p-3 rounded-md hover:bg-gray-500 text-white">Ver Nota Completa</Link>
+                                <Link href={`blog/${blog.id}`} passHref>
+                                    <Button variant="contained" color="primary" className="bg-blue-600 hover:bg-blue-400">Ver Nota Completa</Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>
-                ))
-                }
+                ))}
             </div>
-
         </Paper>
     );
-
-
 }

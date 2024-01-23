@@ -1,8 +1,7 @@
 import React from "react";
 import { Header } from "./header";
 import { Body } from "./body";
-
-const View=()=>{
+const View = () => {
     return (
         <div className="container mx-auto">
             <div><Header /></div>
@@ -10,4 +9,5 @@ const View=()=>{
         </div>
     );
 }
+
 export default View;

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const Header = () => {
     return (
-        <>
+        <div>
             <div className="static w-full">
                 <img src="../images/about/about.webp" alt="¿Quiénes Somos?" className=" w-full h-[250px] object-cover  brightness-50" />
             </div>
@@ -16,7 +16,7 @@ export const Header = () => {
                 Nuestro Blog
                 </Typography>
             </div>
-        </>
+        </div>
 
 
     );
